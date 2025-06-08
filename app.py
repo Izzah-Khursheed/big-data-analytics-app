@@ -46,12 +46,12 @@ if uploaded_file:
     # --- Show Tabs ---
     tabs = st.tabs(
         [
-            "1️⃣ Data Upload (Preview)",
-            "2️⃣ Preprocessing",
-            "3️⃣ Data Visualization",
-            "4️⃣ Model Training & Evaluation",
-            "5️⃣ AI-Powered Insights",
-            "6️⃣ Algorithm Reference",
+            "🗂️ Data Upload (Preview)",
+            "🧹 Preprocessing",
+            "📊 Data Visualization",
+            "🤖 Model Training & Evaluation",
+            "💡 AI-Powered Insights",
+            "📘 Algorithm Reference",
             "💬 Chatbot",
         ]
     )
