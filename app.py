@@ -8,6 +8,7 @@ st.set_page_config(
     page_title="Big Data Analytics Web App",
     layout="wide",
     initial_sidebar_state="expanded",
+    page_icon="logo.png",
 )
 
 # Load custom CSS
