@@ -64,7 +64,7 @@ def run_preprocessing_tab(df: pd.DataFrame):
     # Let user choose types
     fe_options = st.multiselect(
         "Select Feature Engineering Options:",
-        ["Datetime Features", "Numeric Combinations", "Text Length", "Adult Age Column"],
+        ["Datetime Features", "Numeric Combinations", "Text Length", "Adult Age Column", "Is Old Column"],
         default=["Datetime Features", "Numeric Combinations"]
     )
 
@@ -115,6 +115,13 @@ def run_preprocessing_tab(df: pd.DataFrame):
         for col in text_cols:
             fe_df[f"{col}_len"] = fe_df[col].astype(str).apply(len)
             new_features.append(f"{col}_len")
+
+    # 5. Is Old Column (New Feature)
+    if "Is Old Column" in fe_options:
+        if 'age' in fe_df.columns or 'Age' in fe_df.columns:
+            age_col = 'age' if 'age' in fe_df.columns else 'Age'
+            fe_df['is_old'] = fe_df[age_col] >= 60
+            new_features.append('is_old')
 
     # Show results
     if new_features:
