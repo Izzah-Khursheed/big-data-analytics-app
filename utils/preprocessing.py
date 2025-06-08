@@ -5,9 +5,6 @@ import numpy as np
 def run_preprocessing_tab(df: pd.DataFrame):
     st.header("Data Preprocessing")
 
-    st.subheader("Raw Data Snapshot")
-    st.dataframe(df.head(100))
-
     # Step 1: Handling Missing Values
     st.markdown("### 1. Handling Missing Values")
     missing_info = df.isnull().sum()
