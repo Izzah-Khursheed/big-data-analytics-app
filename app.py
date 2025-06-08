@@ -52,7 +52,7 @@ if uploaded_file:
             "4️⃣ Model Training & Evaluation",
             "5️⃣ AI-Powered Insights",
             "6️⃣ Algorithm Reference",
-            "7️⃣ Chatbot (Groq API)",
+            "7️⃣ Chatbot",
         ]
     )
 
