@@ -2,7 +2,7 @@ import streamlit as st
 import requests  # to make HTTP API requests
 
 # Use Streamlit secrets or environment variables for security
-GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"  # Example: "https://api.groq.ai/v1/chat/completions"
+GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"  
 GROQ_API_KEY = st.secrets["GROQ_API_KEY"]  # Your API key
 
 def run_groq_chatbot_tab():
@@ -30,7 +30,7 @@ def generate_bot_response(user_input: str) -> str:
         "Content-Type": "application/json",
     }
     payload = {
-        "model": "gpt-4o-mini",  # example model name, change to your Groq model
+        "model": "meta-llama/llama-4-scout-17b-16e-instruct", 
         "messages": [
             {"role": "user", "content": user_input}
         ]
