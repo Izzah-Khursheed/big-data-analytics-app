@@ -1,0 +1,52 @@
+/* General app background and text */
+body {
+    background-color: #f5f7fa;
+    color: #222222;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar styling */
+[data-testid="stSidebar"] {
+    background-color: #002244;
+    color: white;
+}
+
+/* Sidebar headers */
+[data-testid="stSidebar"] h2 {
+    color: #e0e0e0;
+}
+
+/* Main title */
+h1, h2, h3, h4 {
+    color: #003366;
+}
+
+/* Buttons */
+.stButton>button {
+    background-color: #0055a5;
+    color: white;
+    border-radius: 5px;
+    padding: 6px 14px;
+    border: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.stButton>button:hover {
+    background-color: #003366;
+}
+
+/* Dataframe table */
+.css-1d391kg {
+    font-size: 14px;
+}
+
+/* Tabs styling */
+[data-baseweb="tab"] {
+    font-weight: 600;
+    color: #004080;
+}
+
+[data-baseweb="tab"]:hover {
+    color: #001f4d;
+}
