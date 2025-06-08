@@ -6,12 +6,12 @@ GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"  # Example: "ht
 GROQ_API_KEY = st.secrets["GROQ_API_KEY"]  # Your API key
 
 def run_groq_chatbot_tab():
-    st.header("AI Chatbot 🤖")
+    st.header("AI Chatbot 💬")
 
     if "chat_history" not in st.session_state:
         st.session_state["chat_history"] = []
 
-    user_input = st.text_input(placeholder = "Ask Anything...")
+    user_input = st.text_input("Chat with the Big Data Bot", placeholder="Ask anything related to Big Data, Analytics, or Technologies...")
 
     if user_input:
         st.session_state["chat_history"].append({"user": user_input})
