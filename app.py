@@ -103,7 +103,7 @@ if uploaded_file:
 
     # Tab 7: Chatbot (Groq API)
     with tabs[6]:
-        groq_chatbot.run_chatbot_tab()
+        groq_chatbot.run_groq_chatbot_tab()
 
 else:
     st.sidebar.info("Please upload a dataset to start using the app.")
