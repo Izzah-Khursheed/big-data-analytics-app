@@ -66,11 +66,7 @@ section[data-testid="stSidebar"] {
 section[data-testid="stSidebar"] img {
     display: block;
     margin: 0 auto;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: -0.5rem;
+    padding-bottom: -0.5rem;
 }
 
-/* Optional: Prevent scrollbar on narrow screens */
-::-webkit-scrollbar {
-    width: 0px;
-}
