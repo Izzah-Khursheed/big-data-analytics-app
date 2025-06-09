@@ -53,6 +53,6 @@ h1, h2, h3, h4 {
 
 /* Limit sidebar height and add scroll */
 section[data-testid="stSidebar"] {
-    max-height: 110vh !important; /* 90% of screen height */
+    max-height: 100vh !important; /* 90% of screen height */
     overflow-y: auto !important;
 }
