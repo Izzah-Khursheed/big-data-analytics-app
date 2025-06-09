@@ -57,6 +57,12 @@ section[data-testid="stSidebar"] {
     padding-bottom: 0.5rem !important;
     overflow-y: hidden !important; /* Disable vertical scroll */
 }
+/* Ensure full height and no overflow */
+[data-testid="stSidebar"] {
+    max-height: 100vh !important;
+    overflow-y: auto !important;
+}
+
 
 /* Center the logo image in the sidebar */
 [data-testid="stSidebar"] img {
