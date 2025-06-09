@@ -86,19 +86,26 @@ if uploaded_file:
         st.markdown(
             """
             ### Classification Algorithms
-            - **SVM:** Support Vector Machines, good for small to medium datasets.
-            - **KNN:** K-Nearest Neighbors, simple and effective for classification.
-            - **Decision Tree:** Tree-based model, easy to interpret.
-            - **Logistic Regression:** Linear model for binary classification.
-            - **Naive Bayes:** Probabilistic classifier based on Bayes theorem.
-            - **Random Forest:** Ensemble of decision trees, robust and accurate.
+            - **SVM (Support Vector Machines):**  
+              A powerful algorithm that finds the best boundary (hyperplane) to separate classes by maximizing the margin between data points of different classes. Works well for small to medium-sized datasets and supports linear and non-linear classification using kernels.
+            - **KNN (K-Nearest Neighbors):**  
+              A simple, instance-based learning method that classifies a data point based on the majority class of its K closest neighbors in the feature space. No training phase; useful for small datasets.
+            - **Decision Tree:**  
+              A tree-structured model where each node splits the data based on feature thresholds, leading to easy-to-interpret rules. Prone to overfitting but fast and intuitive.
+            - **Logistic Regression:**  
+              A linear model used for binary classification that estimates probabilities using the logistic (sigmoid) function. Effective for linearly separable classes.
+            - **Naive Bayes:**  
+              A probabilistic classifier based on Bayes' theorem assuming feature independence. Very fast and performs well on high-dimensional data, especially text classification.
+            - **Random Forest:**  
+              An ensemble method that builds multiple decision trees on random subsets of data and features, then aggregates their results for better accuracy and robustness against overfitting.
 
             ### Regression Algorithms
-            - **Linear Regression:** Predicts continuous values using linear model.
-            - **KNN Regressor:** KNN adapted for regression tasks.
-            - **Decision Tree Regressor:** Non-linear regression via tree splitting.
-
-            *(More detailed explanations will be added here...)*
+            - **Linear Regression:**  
+              A fundamental algorithm to predict continuous target variables by fitting a linear relationship between input features and the output. Minimizes the sum of squared errors.
+            - **KNN Regressor:**  
+              Extension of KNN for regression tasks; predicts the target by averaging the values of the K nearest neighbors. Non-parametric and simple but sensitive to noisy data.
+            - **Decision Tree Regressor:**  
+              Uses tree-based splits to model non-linear relationships by dividing the feature space into regions with similar output values. Easy to visualize and interpret.
             """
         )
 
