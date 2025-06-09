@@ -44,31 +44,9 @@ h1, h2, h3, h4 {
 /* Tabs styling */
 [data-baseweb="tab"] {
     font-weight: 600;
-    color: #004080;
+    color: #002244;
 }
 
 [data-baseweb="tab"]:hover {
     color: #001f4d;
-}
-
-/* Reduce padding and scroll in sidebar */
-section[data-testid="stSidebar"] {
-    padding-top: 0rem !important;
-    padding-bottom: 0rem !important;
-    overflow-y: auto !important;
-    height: 100vh !important;
-}
-
-/* Center the logo in sidebar */
-.sidebar-logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Optional: resize and round logo */
-.sidebar-logo {
-    width: 100px;
-    height: auto;
-    border-radius: 8px;
 }
