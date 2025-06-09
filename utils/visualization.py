@@ -62,31 +62,40 @@ def plot_pie_chart(df, cols):
         st.warning("Pie chart supports only single-column categorical data.")
 
 def plot_histogram(df, cols):
+    if not cols:
+        st.warning("Please select at least one column.")
+        return
+
     if len(cols) == 1:
         col = cols[0]
-        fig, ax = plt.subplots()
         if pd.api.types.is_numeric_dtype(df[col]):
-            sns.histplot(df[col].dropna(), bins=30, ax=ax)
-        else:
-            counts = df[col].value_counts()
-            sns.barplot(x=counts.index.astype(str), y=counts.values, ax=ax)
+            fig, ax = plt.subplots(figsize=(10, 5))
+            sns.histplot(df[col], kde=True, bins=30, ax=ax, color='skyblue')
+            ax.set_title(f"Histogram of {col}")
             ax.set_xlabel(col)
             ax.set_ylabel("Count")
-        ax.set_title("Histogram / Frequency Plot")
-        st.pyplot(fig)
-
-    elif len(cols) == 2:
-        x_col, y_col = cols
-        if pd.api.types.is_numeric_dtype(df[y_col]):
-            grouped = df.groupby(x_col)[y_col].count().reset_index(name='Count')
-            fig = px.bar(grouped, x=x_col, y='Count',
-                         labels={x_col: x_col, 'Count': f'Count of {y_col}'},
-                         title=f"Histogram: Count of {y_col} grouped by {x_col}")
-            st.plotly_chart(fig, use_container_width=True)
+            st.pyplot(fig)
         else:
-            st.warning("Second column should be numeric for meaningful histogram-style aggregation.")
+            st.warning(f"'{col}' is not a numeric column.")
+    
+    elif len(cols) == 2:
+        x_col, group_col = cols[0], cols[1]
+        if not pd.api.types.is_numeric_dtype(df[x_col]):
+            st.warning(f"'{x_col}' must be numeric.")
+            return
+        if not pd.api.types.is_categorical_dtype(df[group_col]) and not pd.api.types.is_object_dtype(df[group_col]):
+            st.warning(f"'{group_col}' should be categorical for grouping.")
+            return
+
+        fig, ax = plt.subplots(figsize=(10, 5))
+        sns.histplot(data=df, x=x_col, hue=group_col, kde=True, bins=30, multiple="stack", ax=ax)
+        ax.set_title(f"Grouped Histogram of {x_col} by {group_col}")
+        ax.set_xlabel(x_col)
+        ax.set_ylabel("Count")
+        st.pyplot(fig)
+    
     else:
-        st.warning("Select only one or two columns for histogram.")
+        st.warning("Histogram supports only one numeric or one numeric + one categorical column.")
 
 def plot_line_chart(df, cols):
     # Use datetime or index as x-axis
