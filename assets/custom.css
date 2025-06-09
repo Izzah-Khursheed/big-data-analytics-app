@@ -53,8 +53,8 @@ h1, h2, h3, h4 {
 
 /* Reduce padding and scroll in sidebar */
 section[data-testid="stSidebar"] {
-    padding-top: 0.5rem !important;
-    padding-bottom: 0.5rem !important;
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
     overflow-y: auto !important;
     height: 100vh !important;
 }
@@ -64,8 +64,6 @@ section[data-testid="stSidebar"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
 }
 
 /* Optional: resize and round logo */
