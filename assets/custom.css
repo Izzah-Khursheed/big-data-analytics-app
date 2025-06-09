@@ -51,25 +51,26 @@ h1, h2, h3, h4 {
     color: #001f4d;
 }
 
-/* Reduce sidebar vertical padding */
+/* Minimize vertical padding in sidebar */
 section[data-testid="stSidebar"] {
-    padding-top: 0.5rem !important;
-    padding-bottom: 0.5rem !important;
-    overflow-y: hidden !important; /* Disable vertical scroll */
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+    height: 100vh !important; /* Ensure full height */
+    overflow-y: hidden !important; /* Prevent scrolling */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align contents to top */
 }
-/* Ensure full height and no overflow */
-[data-testid="stSidebar"] {
-    max-height: 100vh !important;
-    overflow-y: auto !important;
-}
-
 
 /* Center the logo image in the sidebar */
-[data-testid="stSidebar"] img {
+section[data-testid="stSidebar"] img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin: 0 auto;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
+/* Optional: Prevent scrollbar on narrow screens */
+::-webkit-scrollbar {
+    width: 0px;
+}
