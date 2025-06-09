@@ -51,9 +51,8 @@ h1, h2, h3, h4 {
     color: #001f4d;
 }
 
-/* Reduce sidebar width */
+/* Limit sidebar height and add scroll */
 section[data-testid="stSidebar"] {
-    width: 200px !important;
-    min-width: 200px !important;
-    max-width: 200px !important;
+    max-height: 90vh !important; /* 90% of screen height */
+    overflow-y: auto !important;
 }
