@@ -14,7 +14,7 @@ def run_visualization_tab(df: pd.DataFrame):
 
     chart_type = st.selectbox(
         "Select chart type",
-        options=["Bar Chart", "Pie Chart", "Histogram", "Line Chart", "Scatter Plot"]
+        options=["Bar Chart", "Pie Chart", "Histogram", "Scatter Plot"]
     )
 
     if st.button("Show Visualization") and selected_cols:
