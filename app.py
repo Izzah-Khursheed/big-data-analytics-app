@@ -16,17 +16,7 @@ with open("assets/custom.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # Sidebar - App title and logo
-# st.sidebar.image("assets/logo.png", width=120)
-with st.sidebar:
-    st.markdown(
-        """
-        <div class="sidebar-logo-container">
-            <img src="assets/logo.png" class="sidebar-logo" />
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
+st.sidebar.image("assets/logo.png", width=100)
 st.sidebar.title("Big Data Analytics")
 
 # --- Step 1: Data Upload ---
