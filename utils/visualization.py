@@ -26,8 +26,6 @@ def run_visualization_tab(df: pd.DataFrame):
             plot_pie_chart(data, selected_cols)
         elif chart_type == "Histogram":
             plot_histogram(data, selected_cols)
-        elif chart_type == "Line Chart":
-            plot_line_chart(data, selected_cols)
         elif chart_type == "Scatter Plot":
             if len(selected_cols) >= 2:
                 plot_scatter_chart(data, selected_cols[0], selected_cols[1])
@@ -96,21 +94,6 @@ def plot_histogram(df, cols):
     
     else:
         st.warning("Histogram supports only one numeric or one numeric + one categorical column.")
-
-def plot_line_chart(df, cols):
-    # Use datetime or index as x-axis
-    time_col = None
-    for col in df.columns:
-        if pd.api.types.is_datetime64_any_dtype(df[col]):
-            time_col = col
-            break
-
-    if time_col:
-        fig = px.line(df, x=time_col, y=cols, title="Line Chart Over Time")
-    else:
-        fig = px.line(df.reset_index(), y=cols, title="Line Chart (Index-based)")
-
-    st.plotly_chart(fig, use_container_width=True)
 
 def plot_scatter_chart(df, x_col, y_col):
     if not (pd.api.types.is_numeric_dtype(df[x_col]) and pd.api.types.is_numeric_dtype(df[y_col])):
