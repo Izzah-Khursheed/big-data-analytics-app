@@ -50,3 +50,10 @@ h1, h2, h3, h4 {
 [data-baseweb="tab"]:hover {
     color: #001f4d;
 }
+
+/* Reduce sidebar width */
+section[data-testid="stSidebar"] {
+    width: 200px !important;
+    min-width: 200px !important;
+    max-width: 200px !important;
+}
