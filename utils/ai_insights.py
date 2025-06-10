@@ -94,9 +94,27 @@ def run_ai_insights_tab(df: pd.DataFrame):
         cluster_df['Cluster'] = labels
         st.dataframe(cluster_df.head())
 
-        fig, ax = plt.subplots()
-        sns.scatterplot(x=scaled_data[:, 0], y=scaled_data[:, 1], hue=labels, palette='viridis', ax=ax)
-        st.pyplot(fig)
+       # Visualize clustering only if we have at least 2 features
+        if scaled_data.shape[1] >= 2:
+            fig, ax = plt.subplots()
+            sns.scatterplot(x=scaled_data[:, 0], y=scaled_data[:, 1], hue=labels, palette='viridis', ax=ax)
+            ax.set_xlabel(numeric_df.columns[0])
+            ax.set_ylabel(numeric_df.columns[1])
+            st.pyplot(fig)
+        elif scaled_data.shape[1] == 1:
+            # Fall back to 1D histogram colored by clusters
+            cluster_df['Cluster'] = labels
+            fig, ax = plt.subplots()
+            for cluster in cluster_df['Cluster'].unique():
+                sns.histplot(cluster_df[cluster_df['Cluster'] == cluster][numeric_df.columns[0]],
+                     label=f'Cluster {cluster}', ax=ax, kde=True)
+            ax.set_xlabel(numeric_df.columns[0])
+            ax.set_ylabel("Frequency")
+            ax.legend()
+            st.pyplot(fig)
+        else:
+            st.warning("Insufficient numeric features for cluster visualization.")
+
     else:
         st.info("Not enough numeric rows to perform clustering.")
 
